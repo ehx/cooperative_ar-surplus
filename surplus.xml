@@ -1,0 +1,31 @@
+<tryton>
+  <data>
+    <menuitem icon="tryton-list" id="menu_cooperative_ar" name="Cooperatives" sequence="10" />
+
+    <record id="surplus_view_tree" model="ir.ui.view">
+      <field name="model">cooperative.surplus</field>
+      <field name="type">tree</field>
+      <field name="name">surplus_tree</field>
+    </record>
+    <record id="surplus_view_form" model="ir.ui.view">
+      <field name="model">cooperative.surplus</field>
+      <field name="type">form</field>
+      <field name="name">surplus_form</field>
+    </record>
+    <record id="act_surplus_form" model="ir.action.act_window">
+      <field name="name">Surplus</field>
+      <field name="res_model">cooperative.surplus</field>
+    </record>
+    <record id="act_surplus_form_view1" model="ir.action.act_window.view">
+      <field eval="10" name="sequence" />
+      <field name="view" ref="surplus_view_tree" />
+      <field name="act_window" ref="act_surplus_form" />
+    </record>
+    <record id="act_surplus_form_view2" model="ir.action.act_window.view">
+      <field eval="20" name="sequence" />
+      <field name="view" ref="surplus_view_form" />
+      <field name="act_window" ref="act_surplus_form" />
+    </record>
+    <menuitem action="act_surplus_form" icon="tryton-list" id="menu_surplus_form" name="" parent="menu_cooperative_ar" sequence="1" />
+  </data>
+</tryton>

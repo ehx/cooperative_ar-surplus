@@ -1,0 +1,34 @@
+<tryton>
+  <data>
+   <!-- View for tree-->
+    <record model="ir.ui.view" id="view_tree">
+        <field name="model">cooperative.partner.surplus</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <![CDATA[
+            <tree string="PartnerSurplus">
+                <field name="date_surplus"/>
+                <field name="partner"/>
+                <field name="cash"/>
+            </tree>
+            ]]>
+        </field>
+    </record>
+    
+    <!-- Main form -->
+    <record model="ir.action.act_window" id="main_form">
+        <field name="name">Informe de excedente!</field>
+        <field name="res_model">cooperative.partner.surplus</field>
+    </record>
+    
+     <!-- Conecta Main form con vista tree -->
+    <record model="ir.action.act_window.view" id="form_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="view_tree"/>
+        <field name="act_window" ref="main_form"/>
+    </record>
+
+    <menuitem parent="menu_cooperative_ar" sequence="1"
+            id="partnersurplus_form" icon="tryton-list" action="main_form"/>
+  </data>
+</tryton>
